@@ -1,6 +1,6 @@
 {
   "name": "ui-bootstrap-dialog",
-  "main": "ui-bootstrap-dialog.js",
+  "main": "dist/ui-bootstrap-dialog.min.js",
   "version": "0.0.1",
   "authors": [
     "Null McNull <nospam@nowhere.com>"
@@ -25,7 +25,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "dependencies": { 
     "angular-bootstrap": "~0.12.0"
   },
   "devDependencies": {
