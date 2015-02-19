@@ -1,0 +1,34 @@
+{
+  "name": "ui-bootstrap-dialog",
+  "main": "ui-bootstrap-dialog.js",
+  "version": "0.0.1",
+  "authors": [
+    "Null McNull <nospam@nowhere.com>"
+  ],
+  "description": "Simple wrapper around the modal service. Provides alert, confirm and prompt dialogs.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "alert",
+    "confirm",
+    "prompt",
+    "angular",
+    "ui",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.12.0"
+  },
+  "devDependencies": {
+    "bootstrap-css": "~3.2.0"
+  }
+}
