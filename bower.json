@@ -1,7 +1,7 @@
 {
   "name": "ui-bootstrap-dialog",
   "main": "dist/ui-bootstrap-dialog.min.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "authors": [
     "Null McNull <nospam@nowhere.com>"
   ],
