@@ -5,6 +5,10 @@
   "authors": [
     "Null McNull <nospam@nowhere.com>"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:McNull/ui-bootstrap-dialog.git"
+  }
   "description": "Simple wrapper around the modal service. Provides alert, confirm and prompt dialogs.",
   "moduleType": [
     "globals"
