@@ -1,7 +1,7 @@
 var app = angular.module('myApp', ['ui.bootstrap.dialog']);
 
 app.config(function($dialogConfig) {
-  $dialogConfig.text.title = 'angular-ui-dialog',
+  $dialogConfig.text.title = 'angular-ui-dialog';
   $dialogConfig.text.close = 'Sluiten';
   $dialogConfig.text.cancel = 'Annuleren';
 });
@@ -20,7 +20,7 @@ app.directive('myAppConfirmDemo', function($dialog) {
           .result.then(function(value) {
             console.log('Dialog accepted: ' + value);
           })['catch'](function(reason) {
-            console.log('Dialog dismissed: ' + reason)
+            console.log('Dialog dismissed: ' + reason);
           })['finally'](function() {
             console.log('Dialog closed');
           });
@@ -57,7 +57,7 @@ app.directive('myAppPromptDemo', function($dialog) {
     link: function($scope) {
       
       $scope.title = 'Prompt Demo';
-      $scope.text = 'Please enter something useful.'
+      $scope.text = 'Please enter something useful.';
       $scope.defaultValue = 'Something useful';
       
       $scope.prompt = function(text, defaultValue, title) {
@@ -65,7 +65,7 @@ app.directive('myAppPromptDemo', function($dialog) {
           .result.then(function(value) {
             console.log('Dialog accepted: ' + value);
           })['catch'](function(reason) {
-            console.log('Dialog dismissed: ' + reason)
+            console.log('Dialog dismissed: ' + reason);
           })['finally'](function() {
             console.log('Dialog closed');
           });

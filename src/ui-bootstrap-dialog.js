@@ -11,7 +11,7 @@ dlg.constant('$dialogConfig', {
 });
 
 dlg.factory('$dialog', function ($dialogAlert, $dialogPrompt, $dialogConfirm) {
-  
+
   return {
     alert: $dialogAlert,
     prompt: $dialogPrompt,
@@ -87,4 +87,78 @@ dlg.directive('dlgFocus', function ($timeout) {
 
     }
   };
+});
+
+dlg.directive('dlgConfirm', function ($dialog, $timeout) {
+
+  return {
+    priority: -100,
+    restrict: 'A',
+    link: {
+      pre: function ($scope, $element, $attrs) {
+
+        var allowed = false;
+
+        $element.on('click', function (e) {
+
+          if (allowed) {
+            allowed = false;
+          } else {
+            if(e.stopImmediatePropagation) {
+              e.stopImmediatePropagation();  
+            }
+            e.preventDefault();
+            
+            $dialog.confirm($attrs.dlgConfirm, $attrs.dlgConfirmTitle)
+              .result
+              .then(function(v) {
+              
+              if(v) {
+                allowed = true;
+                $timeout(function() {
+//                  $element.triggerHandler('click');  
+                  $element[0].click();
+                });
+              }
+              
+            });
+            
+            return false;
+          }          
+        });
+      }
+    }
+  };
+
+});
+
+dlg.config(function ($provide) {
+  $provide.decorator('ngClickDirective', ['$delegate', '$parse',
+    function ($delegate, $parse) {
+
+      var directive = $delegate[0];
+
+      directive.compile = function ($element, attr) {
+        var fn = $parse(attr.ngClick);
+
+        return function ngEventHandler(scope, element) {
+
+          element.on('click', function ($event) {
+
+            if (!$event.defaultPrevented) {
+              var callback = function () {
+                fn(scope, {
+                  $event: $event
+                });
+              };
+              scope.$apply(callback);
+            }
+          });
+
+        };
+      };
+
+      return $delegate;
+    }
+  ]);
 });
