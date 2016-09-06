@@ -20,30 +20,30 @@ dlg.factory('$dialog', function ($dialogAlert, $dialogPrompt, $dialogConfirm) {
 
 });
 
-dlg.factory('$dialogConfirm', function ($modal, $dialogExtendOptions) {
+dlg.factory('$dialogConfirm', function ($uibModal, $dialogExtendOptions) {
 
   return function (textOrOptions, title) {
     var options = $dialogExtendOptions(TEMPLATE_ROOT + 'dialog-confirm.ng.html', textOrOptions, title);
-    return $modal.open(options);
+    return $uibModal.open(options);
   };
 
 });
 
-dlg.factory('$dialogPrompt', function ($modal, $dialogExtendOptions) {
+dlg.factory('$dialogPrompt', function ($uibModal, $dialogExtendOptions) {
 
   return function (textOrOptions, defaultValue, title) {
     var options = $dialogExtendOptions(TEMPLATE_ROOT + 'dialog-prompt.ng.html', textOrOptions, title);
     options.defaultValue = options.defaultValue || defaultValue;
-    return $modal.open(options);
+    return $uibModal.open(options);
   };
 
 });
 
-dlg.factory('$dialogAlert', function ($modal, $dialogExtendOptions) {
+dlg.factory('$dialogAlert', function ($uibModal, $dialogExtendOptions) {
 
   return function (textOrOptions, title) {
     var options = $dialogExtendOptions(TEMPLATE_ROOT + 'dialog-alert.ng.html', textOrOptions, title);
-    return $modal.open(options);
+    return $uibModal.open(options);
   };
 
 });
